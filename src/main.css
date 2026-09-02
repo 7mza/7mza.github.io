@@ -1,0 +1,276 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Roboto Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('@fontsource-variable/roboto/files/roboto-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Roboto Serif Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('@fontsource-variable/roboto-serif/files/roboto-serif-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Roboto Mono Variable';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url('@fontsource-variable/roboto-mono/files/roboto-mono-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@plugin 'daisyui' {
+  themes: false;
+  include: rootcolor, scrollbar, avatar, badge, chat, link, swap, toast;
+}
+
+@plugin 'daisyui/theme' {
+  name: 'solarized-light';
+  default: true;
+  color-scheme: light;
+
+  --color-base-100: oklch(97.35% 0.0261 90.1); /* base3 */
+  --color-base-200: oklch(93.06% 0.026 92.4); /* base2 */
+  --color-base-300: oklch(88.5% 0.0255 92.4); /* base2, one step down */
+  --color-base-content: oklch(0% 0 0); /* black */
+  --color-primary: oklch(61.49% 0.1394 244.93); /* blue */
+  --color-primary-content: oklch(26.73% 0.0486 219.82); /* base03 */
+  --color-secondary: oklch(58.23% 0.1261 279.1); /* violet */
+  --color-secondary-content: oklch(97.35% 0.0261 90.1); /* base3 */
+  --color-accent: oklch(59.24% 0.2025 355.89); /* magenta */
+  --color-accent-content: oklch(97.35% 0.0261 90.1); /* base3 */
+  --color-neutral: oklch(30.92% 0.0518 219.65); /* base02 */
+  --color-neutral-content: oklch(97.35% 0.0261 90.1); /* base3 */
+  --color-info: oklch(64.37% 0.1019 187.38); /* cyan */
+  --color-info-content: oklch(26.73% 0.0486 219.82); /* base03 */
+  --color-success: oklch(64.44% 0.1508 118.6); /* green */
+  --color-success-content: oklch(26.73% 0.0486 219.82); /* base03 */
+  --color-warning: oklch(65.45% 0.134 85.72); /* yellow */
+  --color-warning-content: oklch(26.73% 0.0486 219.82); /* base03 */
+  --color-error: oklch(58.63% 0.2064 27.12); /* red */
+  --color-error-content: oklch(97.35% 0.0261 90.1); /* base3 */
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin 'daisyui/theme' {
+  name: 'solarized-dark';
+  prefersdark: true;
+  color-scheme: dark;
+
+  --color-base-100: oklch(26.73% 0.0486 219.82); /* base03 */
+  --color-base-200: oklch(30.92% 0.0518 219.65); /* base02 */
+  --color-base-300: oklch(35.4% 0.05 219.65); /* base02, one step up */
+  --color-base-content: oklch(100% 0 0); /* white */
+  --color-primary: oklch(61.49% 0.1394 244.93); /* blue */
+  --color-primary-content: oklch(26.73% 0.0486 219.82); /* base03 */
+  --color-secondary: oklch(58.23% 0.1261 279.1); /* violet */
+  --color-secondary-content: oklch(97.35% 0.0261 90.1); /* base3 */
+  --color-accent: oklch(59.24% 0.2025 355.89); /* magenta */
+  --color-accent-content: oklch(97.35% 0.0261 90.1); /* base3 */
+  --color-neutral: oklch(52.3% 0.0283 219.14); /* base01 */
+  --color-neutral-content: oklch(97.35% 0.0261 90.1); /* base3 */
+  --color-info: oklch(64.37% 0.1019 187.38); /* cyan */
+  --color-info-content: oklch(26.73% 0.0486 219.82); /* base03 */
+  --color-success: oklch(64.44% 0.1508 118.6); /* green */
+  --color-success-content: oklch(26.73% 0.0486 219.82); /* base03 */
+  --color-warning: oklch(65.45% 0.134 85.72); /* yellow */
+  --color-warning-content: oklch(26.73% 0.0486 219.82); /* base03 */
+  --color-error: oklch(58.63% 0.2064 27.12); /* red */
+  --color-error-content: oklch(97.35% 0.0261 90.1); /* base3 */
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme {
+  --font-sans: 'Roboto Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Roboto Serif Variable', ui-serif, Georgia, serif;
+  --font-mono: 'Roboto Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+h1,
+h2 {
+  font-family: var(--font-serif);
+}
+
+.pop-panel .badge,
+#cert div .badge {
+  font-family: var(--font-mono);
+}
+
+@utility pop {
+  @apply relative w-fit;
+}
+
+@utility pop-title {
+  @apply flex min-h-8 items-center gap-2 py-[0.125rem] pointer-coarse:min-h-11;
+}
+
+@utility pop-panel {
+  @apply rounded-box border-base-300 bg-base-100 absolute top-full left-0 z-10 flex w-max max-w-64 origin-top-left flex-wrap gap-[0.375rem] border px-2 py-4 shadow-md;
+}
+
+details > summary {
+  cursor: pointer;
+  list-style: none;
+  transition: opacity 120ms ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary::after {
+  content: '';
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.6;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+details > summary:active {
+  opacity: 0.6;
+}
+
+details > summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.swap:has(input:focus-visible) {
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+  border-radius: 0.75rem;
+}
+
+.swap input:focus-visible {
+  outline: none;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .pop-panel {
+    background-color: color-mix(in oklab, var(--color-base-100) 82%, transparent);
+    backdrop-filter: blur(12px);
+  }
+
+  /* eslint-disable-next-line css/use-baseline */
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .pop-panel {
+      background-color: var(--color-base-100);
+      backdrop-filter: none;
+    }
+  }
+}
+
+.theming,
+.theming *,
+.theming *::before,
+.theming *::after {
+  transition-property: background-color, border-color, color, opacity;
+  transition-duration: 100ms;
+  transition-timing-function: ease-out;
+}
+
+.chat-bubble {
+  padding: 0.5em 1em;
+}
+
+.avatar > div {
+  border: 2px solid var(--color-base-300);
+}
+
+#toaster .avatar > div {
+  background-color: var(--color-base-100);
+}
+
+#toaster .chat {
+  transition: opacity 150ms ease-out;
+}
+
+#toaster .chat.leaving {
+  opacity: 0;
+}
+
+details[open] > summary::after {
+  rotate: 180deg;
+}
+
+a:active {
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  details[open] > summary ~ * {
+    animation: panel-in 140ms ease-out;
+  }
+
+  details > summary {
+    transform-origin: left center;
+    transition:
+      transform 120ms cubic-bezier(0.2, 0, 0, 1),
+      opacity 120ms ease-out;
+  }
+
+  details > summary:active {
+    transform: scale(0.975);
+    opacity: 0.65;
+  }
+
+  details > summary::after {
+    transition: rotate 240ms cubic-bezier(0.32, 1.15, 0.5, 1);
+  }
+
+  .theming,
+  .theming *,
+  .theming *::before,
+  .theming *::after {
+    transition-property: background-color, border-color, color, opacity, rotate;
+  }
+
+  #toaster .chat {
+    transition-property: opacity, scale;
+  }
+
+  #toaster .chat.leaving {
+    scale: 0.95;
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    translate: 0 -4px;
+    scale: 0.97;
+  }
+}
