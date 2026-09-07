@@ -118,13 +118,13 @@ const CERT_ROLES = [
 const CERT_OVERFLOW = 'Maximum Call Stack Certification!';
 const CERT_DEEP = [
   'Keep going?',
-  'Certified Certifier',
+  /*'Certified Certifier',
   'Certification Auditor',
   'Auditor of Certification Auditors',
   'Certified Trainer of Certified Trainers',
   'Certification Renewal Certification',
   'Certified Certification Renewal Certifier',
-  'Keep going?',
+  'Keep going?',*/
   CERT_OVERFLOW,
 ];
 
