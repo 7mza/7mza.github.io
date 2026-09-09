@@ -47,6 +47,14 @@ addEventListener('pointerdown', (e) => {
   });
 });
 
+const avatarBtn = document.getElementById('avatar');
+const zoom = document.getElementById('zoom');
+const closeZoom = () => zoom.classList.remove('open');
+avatarBtn.addEventListener('click', () => zoom.classList.toggle('open'));
+addEventListener('keydown', (e) => e.key === 'Escape' && closeZoom());
+addEventListener('pointerdown', (e) => !avatarBtn.contains(e.target) && closeZoom());
+addEventListener('scroll', closeZoom, { passive: true });
+
 const KEYWORDS = [
   ['Synergy & ownership! 💪', 'winner'],
   ['Thought leadership! 🧠', 'winner'],
