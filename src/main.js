@@ -61,6 +61,7 @@ const KEYWORDS = [
   ["We've got great benefits! 🍕", 'anne'],
   ['Competitive compensation between 300k & 10k!', 'anne'],
   ['We went with an internal candidate after round 8th!', 'anne'],
+  ["We're an inclusive & diverse ecofriendly family!", 'anne'],
 ];
 
 let bag = [];
