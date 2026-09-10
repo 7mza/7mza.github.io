@@ -144,6 +144,34 @@ h2 {
   @apply border-base-300 aspect-square w-[min(80vw,70vh,24rem)] overflow-hidden rounded-full border-2 shadow-2xl;
 }
 
+.idle {
+  right: max(1.5rem, calc((100% - 64rem) / 2 + 1.5rem));
+}
+
+.idle > img {
+  position: relative;
+}
+
+main:has(details[name='cols'][open]) .idle {
+  opacity: 0.5;
+}
+
+.idle-shadow {
+  position: absolute;
+  bottom: -0.5%;
+  left: 57.5%;
+  width: 84%;
+  aspect-ratio: 40 / 7;
+  translate: -50% 0;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAHCAYAAAB6BA+OAAAAQElEQVR42mNkIB5oMFAX3CBGESOZDpEg01EvSHU4IxGOkmCgLcDn6BuMA+w4go5kIpAWXgyk42AhOCTS4KDNxQCo3QyxWkzE6AAAAABJRU5ErkJggg==')
+    center / 100% 100% no-repeat;
+  image-rendering: pixelated;
+}
+
+[data-theme='solarized-dark'] .idle-shadow {
+  display: none;
+}
+
 @utility mug {
   @apply bg-base-200 flex size-full flex-col items-center justify-center text-center font-black;
   container-type: inline-size;
@@ -313,6 +341,10 @@ a:active {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .idle {
+    transition: opacity 160ms ease-out;
+  }
+
   details[open] > summary ~ * {
     animation: panel-in 140ms ease-out;
   }
