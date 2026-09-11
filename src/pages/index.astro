@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { RAMBLINGS } from 'astro:env/server';
 import Base from '../layouts/Base.astro';
 import { isoDate, shortDate } from '../date.js';
+
 const articles = RAMBLINGS
   ? (await getCollection('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   : [];
@@ -291,6 +292,16 @@ const articles = RAMBLINGS
       target="_blank">
       <svg class="size-7 fill-current">
         <use href="#i-github" />
+      </svg>
+    </a>
+    <a
+      class="shrink-0 opacity-80 transition-opacity hover:opacity-100"
+      aria-label="codeberg.org/7mza"
+      href="https://codeberg.org/7mza"
+      rel="noopener noreferrer"
+      target="_blank">
+      <svg class="size-7 fill-current">
+        <use href="#i-codeberg" />
       </svg>
     </a>
   </section>

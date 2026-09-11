@@ -3,11 +3,13 @@ import { getCollection, render } from 'astro:content';
 import { RAMBLINGS } from 'astro:env/server';
 import Base from '../../layouts/Base.astro';
 import { isoDate, shortDate } from '../../date.js';
+
 export async function getStaticPaths() {
   if (!RAMBLINGS) return [];
   const articles = await getCollection('articles');
   return articles.map((article) => ({ params: { slug: article.id }, props: { article } }));
 }
+
 const { article } = Astro.props;
 const { Content } = await render(article);
 ---
