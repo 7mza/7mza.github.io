@@ -173,7 +173,7 @@ const unwind = () => {
   certRoot.open = false;
   certRoot.querySelectorAll(':scope > div').forEach((node) => node.remove());
 };
-grow(certRoot, 0);
+if (certRoot) grow(certRoot, 0);
 
 const toaster = document.getElementById('toaster');
 let timer;
@@ -182,7 +182,7 @@ document.getElementById('linkedin-bait').addEventListener('click', () => {
   const [message, avatar] = nextKeyword();
   const toast = document.createElement('div');
   toast.className = 'chat chat-start w-full';
-  toast.innerHTML = `<div class="chat-image avatar"><div class="w-10 rounded-full"><img alt="" decoding="async" height="192" width="192" src="${avatar}.png"></div></div><div class="chat-bubble min-h-0 max-w-full rounded-2xl rounded-es-none shadow-lg"></div>`;
+  toast.innerHTML = `<div class="chat-image avatar"><div class="w-10 rounded-full"><img alt="" decoding="async" height="192" width="192" src="/${avatar}.png"></div></div><div class="chat-bubble min-h-0 max-w-full rounded-2xl rounded-es-none shadow-lg"></div>`;
   toast.querySelector('.chat-bubble').textContent = message;
   toaster.replaceChildren(toast);
   timer = setTimeout(() => {

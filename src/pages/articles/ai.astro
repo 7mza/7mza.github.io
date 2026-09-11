@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+
+export const meta = {
+  title: '"We have the latest model, why do we need developers?"',
+  description:
+    'What are you saying? A good AI collaborator is someone who knows their domain first & delegates to AI second? Nah! Go sell potatoes!',
+  date: '2026-09-11',
+  image: '/ceo.png',
+};
+---
+
+<Base
+  title={meta.title}
+  description={meta.description}
+  ogType="article">
+  <section class="mt-6 max-w-prose md:mt-8">
+    <h1 class="text-3xl leading-tight font-black tracking-tight md:text-4xl">
+      "We have the latest model, why do we need developers?"
+    </h1>
+    <h2 class="lede mt-3 text-lg font-bold">
+      What are you saying? A good AI collaborator is someone who knows their domain first &amp; delegates to AI second?
+      Nah! Go sell potatoes!
+    </h2>
+    <p class="mt-2 text-right font-mono text-sm opacity-60">
+      <time datetime="2026-09-11">11/09/2026</time>
+    </p>
+    <div class="mt-6 flex flex-col gap-4">
+      <p>
+        This discussion comes back every generation. Mine got no/low code &amp; the more I tried explaining it wasn't the
+        miracle on the box, the harder higher ups clutched their opinion. You just learn to bite your tongue &amp; let it
+        pass through their system.
+      </p>
+      <p>Before us it was RAD tools &amp; SAP. Before them, MS Access &amp; SharePoint ...etc.</p>
+      <p>And sure, not just coding, practically every white collar job is solved.</p>
+      <p>For who though?</p>
+      <p>Vibe coding on localhost:8080 is not the same job as a multi team/service system in prod.</p>
+      <p>
+        Unless you have unlimited frontier access or a FAANG budget, anyone on a commercial or personal plan has already
+        run into the shortcomings. Past a certain usage, which you hit pretty fast in any prod codebase, quality drops
+        &amp; shadow rerouting kicks in: fast &amp; cheap localised band aids over band aids output, with little ability
+        to step back or plan for consequences.
+      </p>
+      <p>
+        You can mitigate through orchestration, skills &amp; context management. But the only real fix is money:
+        continuous billing &amp; tokenmaxing.
+      </p>
+      <p>
+        And that stays a hard constraint as long as major providers are running at a loss, which they will be for a
+        while, because energy. Funny enough, Big Energy capital is what's protecting us from Big Tech capital right now.
+      </p>
+      <p>
+        And if this century taught us anything about capital: the end state is always{' '}
+        <a
+          class="link"
+          href="https://en.wikipedia.org/wiki/Enshittification"
+          rel="noopener noreferrer"
+          target="_blank">
+          enshittification
+        </a>
+        . The race for infinite growth on a finite planet leads nowhere else.
+      </p>
+      <p>
+        Once Big AI is done scorching earth, 💩 floodgates will open, prices will reach Elon Musk satellites &amp;
+        decision makers will go on a cruise.
+      </p>
+      <figure class="flex flex-col items-center gap-2 text-center">
+        <img
+          class="rounded-box border-base-300 border"
+          alt="McDonald's CEO"
+          decoding="async"
+          height="300"
+          loading="lazy"
+          src="/ceo.png"
+          width="300"
+        />
+        <figcaption class="text-sm opacity-70">
+          <a
+            class="link"
+            href="https://www.youtube.com/watch?v=W6QFxgS8fSA"
+            rel="noopener noreferrer"
+            target="_blank">
+            McDonald's CEO enjoying his PRODUK
+          </a>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+</Base>

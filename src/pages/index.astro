@@ -1,0 +1,382 @@
+---
+import Base from '../layouts/Base.astro';
+const articles = Object.entries(import.meta.glob('./articles/*.astro', { eager: true }))
+  .map(([path, page]) => ({ ...page.meta, slug: path.match(/([^/]+)\.astro$/)[1] }))
+  .sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<Base
+  title="Hamza BAAZIZ - Freelance Backend Software Engineer - JVM & Cloud Native"
+  description="Freelance Backend Software Engineer (JVM, Cloud). B2B, remote.">
+  <section class="mt-6 md:mt-8">
+    <ul class="flex flex-col items-start gap-x-4 gap-y-1 md:flex-row md:flex-wrap md:items-center">
+      <li>
+        <h2 class="text-lg font-bold tracking-tight">Backend Engineer</h2>
+      </li>
+      <li>
+        <details
+          class="pop"
+          name="pop">
+          <summary class="pop-title">
+            <span>JVM</span>
+          </summary>
+          <div class="pop-panel">
+            <span class="badge badge-ghost badge-sm">Kotlin</span>
+            <span class="badge badge-ghost badge-sm">Java</span>
+            <span class="badge badge-ghost badge-sm">Spring</span>
+            <span class="badge badge-ghost badge-sm">WebFlux</span>
+            <span class="badge badge-ghost badge-sm">Quarkus</span>
+          </div>
+        </details>
+      </li>
+      <li>
+        <details
+          class="pop"
+          name="pop">
+          <summary class="pop-title">
+            <span>Cloud Native</span>
+          </summary>
+          <div class="pop-panel">
+            <span class="badge badge-ghost badge-sm">GraalVM</span>
+            <span class="badge badge-ghost badge-sm">Containerization</span>
+            <span class="badge badge-ghost badge-sm">K8s</span>
+          </div>
+        </details>
+      </li>
+    </ul>
+  </section>
+  <section
+    class="mt-6 grid items-start gap-x-5 gap-y-6 md:mt-8 md:grid-cols-2"
+    aria-label="What I do and don't do">
+    <details name="cols">
+      <summary class="pop-title">
+        <h2 class="text-lg font-bold tracking-tight">I do</h2>
+      </summary>
+      <div class="pb-4">
+        <div class="chat chat-start mt-2">
+          <div class="chat-image avatar">
+            <div class="w-10 rounded-full">
+              <img
+                alt=""
+                decoding="async"
+                height="192"
+                src="/peon.png"
+                width="192"
+              />
+            </div>
+          </div>
+          <div class="chat-header">WC3 Peon</div>
+          <div class="chat-bubble min-h-0 rounded-2xl rounded-es-none">More work? Yes, milord.</div>
+        </div>
+        <ul class="mt-2 flex flex-wrap items-start gap-x-4 gap-y-1">
+          <li>
+            <details
+              class="pop"
+              name="pop">
+              <summary class="pop-title">
+                <span>Architecture</span>
+              </summary>
+              <div class="pop-panel">
+                <span class="badge badge-ghost badge-sm">Legacy modernization</span>
+                <span class="badge badge-ghost badge-sm">Microservices</span>
+                <span class="badge badge-ghost badge-sm">DDD</span>
+                <span class="badge badge-ghost badge-sm">Event driven</span>
+                <span class="badge badge-ghost badge-sm">Distributed trx patterns</span>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details
+              class="pop"
+              name="pop">
+              <summary class="pop-title">
+                <span>Data</span>
+              </summary>
+              <div class="pop-panel">
+                <span class="badge badge-ghost badge-sm">SQL</span>
+                <span class="badge badge-ghost badge-sm">NoSQL</span>
+                <span class="badge badge-ghost badge-sm">Graph</span>
+                <span class="badge badge-ghost badge-sm">In-memory</span>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details
+              class="pop"
+              name="pop">
+              <summary class="pop-title">
+                <span>APIs &amp; Security</span>
+              </summary>
+              <div class="pop-panel">
+                <span class="badge badge-ghost badge-sm">REST</span>
+                <span class="badge badge-ghost badge-sm">GraphQL</span>
+                <span class="badge badge-ghost badge-sm">OAuth2</span>
+                <span class="badge badge-ghost badge-sm">mTLS</span>
+                <span class="badge badge-ghost badge-sm">Security enforcement gates</span>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details
+              class="pop"
+              name="pop">
+              <summary class="pop-title">
+                <span>Ops</span>
+              </summary>
+              <div class="pop-panel">
+                <span class="badge badge-ghost badge-sm">CI/CD</span>
+                <span class="badge badge-ghost badge-sm">Observability</span>
+                <span class="badge badge-ghost badge-sm">Monitoring</span>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details
+              class="pop"
+              name="pop">
+              <summary class="pop-title">
+                <span>Quality &amp; Tests</span>
+              </summary>
+              <div class="pop-panel">
+                <span class="badge badge-ghost badge-sm">TDD</span>
+                <span class="badge badge-ghost badge-sm">Unit</span>
+                <span class="badge badge-ghost badge-sm">Integration</span>
+                <span class="badge badge-ghost badge-sm">E2E</span>
+                <span class="badge badge-ghost badge-sm">Contract</span>
+                <span class="badge badge-ghost badge-sm">Load</span>
+                <span class="badge badge-ghost badge-sm">Quality enforcement gates</span>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details
+              class="pop"
+              name="pop">
+              <summary class="pop-title">
+                <span>AI assisted dev.</span>
+              </summary>
+              <div class="pop-panel">
+                <span class="badge badge-ghost badge-sm">Agentic coding</span>
+                <span class="badge badge-ghost badge-sm">Spec driven dev.</span>
+                <span class="badge badge-ghost badge-sm">Progressive disclosure</span>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </details>
+    <details name="cols">
+      <summary class="pop-title">
+        <h2 class="text-lg font-bold tracking-tight">I don't</h2>
+      </summary>
+      <div class="pb-4">
+        <div class="chat chat-start mt-2">
+          <div class="chat-image avatar">
+            <div class="w-10 rounded-full">
+              <img
+                alt=""
+                decoding="async"
+                height="192"
+                src="/winner.png"
+                width="192"
+              />
+            </div>
+          </div>
+          <div class="chat-header">LinkedIn Winner</div>
+          <div class="chat-bubble min-h-0 rounded-2xl rounded-es-none">
+            I specialize in soft skills engineering &amp; circling back!
+          </div>
+        </div>
+        <ul class="mt-2 flex flex-wrap gap-1.5">
+          <li class="badge badge-ghost badge-sm">Senior Chief VP Officer of AI</li>
+          <li class="badge badge-ghost badge-sm">2 centuries of experience owning X</li>
+          <li class="badge badge-ghost badge-sm">Handled billions of Y a second</li>
+          <li class="badge badge-ghost badge-sm">Cut Z time by 1000%</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <section class="mt-6 md:mt-8">
+    <details name="cols">
+      <summary class="pop-title">
+        <h2 class="text-lg font-bold tracking-tight">Work experience</h2>
+      </summary>
+      <ul class="mt-2 flex flex-wrap items-start gap-x-4 gap-y-4 pb-4">
+        <li class="flex flex-col items-start gap-1.5">
+          <a
+            class="link"
+            href="https://glide.io"
+            rel="noopener noreferrer"
+            target="_blank">
+            glide.io
+          </a>
+          <span class="badge badge-ghost badge-sm">Modernization</span>
+          <span class="badge badge-ghost badge-sm">FDD</span>
+        </li>
+        <li class="flex flex-col items-start gap-1.5">
+          <a
+            class="link"
+            href="https://www.orange-business.com"
+            rel="noopener noreferrer"
+            target="_blank">
+            Orange Business
+          </a>
+          <span class="badge badge-ghost badge-sm">Internal tooling</span>
+          <a
+            class="badge badge-ghost badge-sm link"
+            href="https://espaceclientpro.orange.fr"
+            rel="noopener noreferrer"
+            target="_blank">
+            Orange Espace Client Pro
+          </a>
+          <div class="border-base-300 ms-2 flex flex-col items-start gap-1.5 border-s ps-2">
+            <span class="badge badge-ghost badge-sm">Modernization</span>
+            <span class="badge badge-ghost badge-sm">FDD</span>
+          </div>
+          <a
+            class="badge badge-ghost badge-sm link"
+            href="https://gitlab.inria.fr/stopcovid19"
+            rel="noopener noreferrer"
+            target="_blank">
+            TousAntiCovid
+          </a>
+          <div class="border-base-300 ms-2 flex flex-col items-start gap-1.5 border-s ps-2">
+            <span class="badge badge-ghost badge-sm">High availability</span>
+          </div>
+        </li>
+        <li class="flex flex-col items-start gap-1.5">
+          <a
+            class="link"
+            href="https://worldline.com/fr-fr/home"
+            rel="noopener noreferrer"
+            target="_blank">
+            Worldline
+          </a>
+          <span class="badge badge-ghost badge-sm">IoT</span>
+        </li>
+        <li class="flex flex-col items-start gap-1.5">
+          <a
+            class="link"
+            href="https://www.groupe-casino.fr"
+            rel="noopener noreferrer"
+            target="_blank">
+            Groupe Casino
+          </a>
+          <span class="badge badge-ghost badge-sm">Workflow automation</span>
+        </li>
+        <li class="flex flex-col items-start gap-1.5">
+          <a
+            class="link"
+            href="https://www.accenture.com/en?country=ma"
+            rel="noopener noreferrer"
+            target="_blank">
+            Accenture
+          </a>
+          <span class="badge badge-ghost badge-sm">Maintenance</span>
+          <span class="badge badge-ghost badge-sm">FDD</span>
+        </li>
+      </ul>
+    </details>
+  </section>
+  <section class="mt-6 flex items-center gap-x-3 md:mt-8">
+    <h2 class="text-lg font-bold tracking-tight">Technical portfolio</h2>
+    <a
+      class="shrink-0 opacity-80 transition-opacity hover:opacity-100"
+      aria-label="github.com/7mza"
+      href="https://github.com/7mza"
+      rel="noopener noreferrer"
+      target="_blank">
+      <svg class="size-7 fill-current">
+        <use href="#i-github" />
+      </svg>
+    </a>
+  </section>
+  <section class="mt-6 md:mt-8">
+    <p class="max-w-prose">
+      &amp; when not behind a{' '}
+      <img
+        class="inline-block size-[1.2em] align-[-0.15em] motion-reduce:hidden"
+        alt="💻"
+        decoding="async"
+        height="64"
+        loading="lazy"
+        src="/laptop.webp"
+        width="64"
+      />
+      <span class="hidden motion-reduce:inline">💻</span>, I'm{' '}
+      <img
+        class="inline-block size-[1.2em] align-[-0.15em] motion-reduce:hidden"
+        alt="🎣"
+        decoding="async"
+        height="64"
+        loading="lazy"
+        src="/fishing.webp"
+        width="64"
+      />
+      <span class="hidden motion-reduce:inline">🎣</span> or lost in a{' '}
+      <img
+        class="inline-block size-[1.2em] align-[-0.15em] motion-reduce:hidden"
+        alt="🌲"
+        decoding="async"
+        height="64"
+        loading="lazy"
+        src="/tree.webp"
+        width="64"
+      />
+      <span class="hidden motion-reduce:inline">🌲</span> somewhere!
+    </p>
+  </section>
+  <section class="mt-6 md:mt-8">
+    <ul class="flex flex-wrap items-start gap-x-4 gap-y-1">
+      <li class="basis-full md:basis-auto">
+        <h2 class="text-lg font-bold tracking-tight">Certifications &amp; awards</h2>
+      </li>
+      <li class="mt-1 max-w-full min-w-0 overflow-x-auto pb-1">
+        <details id="cert">
+          <summary class="badge badge-ghost badge-sm">
+            <span>All of them</span>
+          </summary>
+        </details>
+      </li>
+    </ul>
+  </section>
+  <section
+    class="mt-6 md:mt-8"
+    slot="wide">
+    <h2 class="text-lg font-bold tracking-tight">Ramblings</h2>
+    <ul class="mt-3 grid gap-3 sm:grid-cols-2 md:gap-4">
+      {articles.map((article) => (
+        <li>
+          <a
+            class="card card-xs card-border hover:bg-base-200 h-full transition-colors sm:card-sm md:card-md"
+            href={`/articles/${article.slug}/`}>
+            {article.image && (
+              <figure class="h-20 md:h-24">
+                <img
+                  class="h-full w-full object-cover object-[52%_43%]"
+                  alt=""
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src={article.image}
+                  width="300"
+                />
+              </figure>
+            )}
+            <div class="card-body">
+              <h3 class="card-title">{article.title}</h3>
+              <p class="opacity-80">{article.description}</p>
+              <div class="card-actions justify-end">
+                <time
+                  class="font-mono text-xs opacity-60"
+                  datetime={article.date}>
+                  {article.date.split('-').reverse().join('/')}
+                </time>
+              </div>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
