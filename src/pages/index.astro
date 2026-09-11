@@ -1,8 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-const articles = Object.entries(import.meta.glob('./articles/*.astro', { eager: true }))
-  .map(([path, page]) => ({ ...page.meta, slug: path.match(/([^/]+)\.astro$/)[1] }))
-  .sort((a, b) => b.date.localeCompare(a.date));
+import { articles as allArticles } from '../articles.js';
+const articles = [...allArticles].sort((a, b) => b.date.localeCompare(a.date));
 ---
 
 <Base
