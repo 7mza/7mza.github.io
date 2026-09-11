@@ -5,6 +5,6 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://7mza.github.io',
-  integrations: [sitemap({ lastmod: new Date() })],
+  integrations: [sitemap({ filter: (page) => page === 'https://7mza.github.io/', lastmod: new Date() })],
   vite: { plugins: [tailwindcss()] },
 });

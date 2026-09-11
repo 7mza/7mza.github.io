@@ -4,6 +4,7 @@ import '../main.css';
 const { title, description, ogType = 'profile' } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const isIndex = Astro.url.pathname === '/';
 const now = new Date();
 const [year, month, day] = now.toISOString().slice(0, 10).split('-');
 const buildIso = `${now.toISOString().slice(0, 16)}Z`;
@@ -32,7 +33,7 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
       name="description"
     />
     <meta
-      content="max-image-preview:large"
+      content={isIndex ? 'max-image-preview:large' : 'noindex, nofollow'}
       name="robots"
     />
     <meta
@@ -159,7 +160,7 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
         <div class="flex items-start gap-4 md:gap-6">
           <div class="min-w-0 grow">
             <slot />
-            {Astro.url.pathname !== '/' && (
+            {!isIndex && (
               <p class="mt-8">
                 <a
                   class="link link-hover flex w-fit items-center gap-1.5"

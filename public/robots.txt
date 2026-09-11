@@ -1,4 +1,10 @@
 User-agent: *
-Allow: /
+Allow: /$
+Allow: /_astro/
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.xml$
+Allow: /google6a9d902878adb148.html
+Disallow: /
 
 Sitemap: https://7mza.github.io/sitemap-index.xml
