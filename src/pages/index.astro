@@ -1,7 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
+import { RAMBLINGS } from 'astro:env/server';
 import Base from '../layouts/Base.astro';
-import { articles as allArticles, ramblingsEnabled } from '../articles.js';
-const articles = [...allArticles].sort((a, b) => b.date.localeCompare(a.date));
+import { isoDate, shortDate } from '../date.js';
+const articles = RAMBLINGS
+  ? (await getCollection('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  : [];
 ---
 
 <Base
@@ -339,7 +343,7 @@ const articles = [...allArticles].sort((a, b) => b.date.localeCompare(a.date));
       </li>
     </ul>
   </section>
-  {ramblingsEnabled && (
+  {articles.length > 0 && (
     <section
       class="mt-6 md:mt-8"
       slot="wide">
@@ -348,9 +352,9 @@ const articles = [...allArticles].sort((a, b) => b.date.localeCompare(a.date));
         {articles.map((article) => (
           <li>
             <a
-              class="card card-xs card-border hover:bg-base-200 h-full transition-colors sm:card-sm md:card-md"
-              href={`/articles/${article.slug}/`}>
-              {article.image && (
+              class="card card-xs card-border hover:bg-base-200 h-full border-2 shadow-sm transition-[background-color,box-shadow] hover:shadow-md sm:card-sm md:card-md"
+              href={`/articles/${article.id}/`}>
+              {article.data.image && (
                 <figure class="h-20 md:h-24">
                   <img
                     class="h-full w-full object-cover object-[52%_43%]"
@@ -358,19 +362,19 @@ const articles = [...allArticles].sort((a, b) => b.date.localeCompare(a.date));
                     decoding="async"
                     height="300"
                     loading="lazy"
-                    src={article.image}
+                    src={article.data.image}
                     width="300"
                   />
                 </figure>
               )}
               <div class="card-body">
-                <h3 class="card-title">{article.title}</h3>
-                <p class="opacity-80">{article.description}</p>
+                <h3 class="card-title">{article.data.title}</h3>
+                <p class="opacity-80">{article.data.description}</p>
                 <div class="card-actions justify-end">
                   <time
                     class="font-mono text-xs opacity-60"
-                    datetime={article.date}>
-                    {article.date.split('-').reverse().join('/')}
+                    datetime={isoDate(article.data.date)}>
+                    {shortDate(article.data.date)}
                   </time>
                 </div>
               </div>

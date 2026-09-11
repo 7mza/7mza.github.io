@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content';
+import { RAMBLINGS } from 'astro:env/server';
+import Base from '../../layouts/Base.astro';
+import { isoDate, shortDate } from '../../date.js';
+export async function getStaticPaths() {
+  if (!RAMBLINGS) return [];
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({ params: { slug: article.id }, props: { article } }));
+}
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<Base
+  title={article.data.title}
+  description={article.data.description}
+  ogType="article">
+  <section class="mt-6 max-w-prose md:mt-8">
+    <h1 class="text-3xl leading-tight font-black tracking-tight md:text-4xl">{article.data.headline}</h1>
+    {article.data.lede && <h2 class="lede mt-3 text-lg font-bold">{article.data.lede}</h2>}
+    <p class="mt-2 text-right font-mono text-sm opacity-60">
+      <time datetime={isoDate(article.data.date)}>{shortDate(article.data.date)}</time>
+    </p>
+    <div class="prose mt-6 max-w-none">
+      <Content />
+    </div>
+  </section>
+</Base>

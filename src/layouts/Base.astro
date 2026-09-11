@@ -1,15 +1,13 @@
 ---
 import '../main.css';
+import { shortDate } from '../date.js';
 const { title, description, ogType = 'profile' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const isIndex = Astro.url.pathname === '/';
 const now = new Date();
-const [year, month, day] = now.toISOString().slice(0, 10).split('-');
-const buildIso = `${now.toISOString().slice(0, 16)}Z`;
-const buildDate = `${day}-${month}-${year}`;
 const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', timeZoneName: 'short' })
   .formatToParts(now)
-  .find((part) => part.type === 'timeZoneName').value;
+  .find((part) => part.type === 'timeZoneName')?.value;
 ---
 
 <!-- this landing page is mostly satire, hit me through the alias for the "square" résumé, I can help u build solid things -->
@@ -208,7 +206,7 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
           /
         </span>
         <span>
-          build <time datetime={buildIso}>{buildDate}</time>
+          build <time datetime={now.toISOString()}>{shortDate(now)}</time>
         </span>
         <span
           class="opacity-40"

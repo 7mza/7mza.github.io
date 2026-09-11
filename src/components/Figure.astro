@@ -1,0 +1,30 @@
+---
+const { src, alt = '', caption, href, width = 300, height = 300 } = Astro.props;
+---
+
+<figure class="flex flex-col items-center gap-2 text-center">
+  <img
+    class="rounded-box border-base-300 border"
+    alt={alt}
+    decoding="async"
+    height={height}
+    loading="lazy"
+    src={src}
+    width={width}
+  />
+  {caption && (
+    <figcaption class="text-sm opacity-70">
+      {href ? (
+        <a
+          class="link"
+          href={href}
+          rel="noopener noreferrer"
+          target="_blank">
+          {caption}
+        </a>
+      ) : (
+        caption
+      )}
+    </figcaption>
+  )}
+</figure>

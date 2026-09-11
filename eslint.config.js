@@ -6,28 +6,7 @@ import css from '@eslint/css';
 import { defineConfig } from 'eslint/config';
 import { tailwind4 } from 'tailwind-csstree';
 import astro from 'eslint-plugin-astro';
-
-const tailwindWithDaisyui = (prev) => {
-  const syntax = tailwind4(prev);
-  return {
-    ...syntax,
-    atrules: {
-      ...syntax.atrules,
-      plugin: {
-        ...syntax.atrules.plugin,
-        descriptors: {
-          themes: '<any-value>',
-          include: '<any-value>',
-          exclude: '<any-value>',
-          name: '<any-value>',
-          default: '<any-value>',
-          prefersdark: '<any-value>',
-          'color-scheme': '<any-value>',
-        },
-      },
-    },
-  };
-};
+import * as mdx from 'eslint-plugin-mdx';
 
 export default defineConfig([
   { ignores: ['dist', '.astro', 'package-lock.json'] },
@@ -39,12 +18,19 @@ export default defineConfig([
     plugins: { css },
     language: 'css/css',
     extends: ['css/recommended'],
-    languageOptions: { customSyntax: tailwindWithDaisyui },
+    languageOptions: { customSyntax: tailwind4 },
     rules: { 'css/no-invalid-properties': ['error', { allowUnknownVariables: true }] },
   },
-  ...astro.configs.recommended,
   {
-    files: ['**/*.astro'],
-    languageOptions: { parserOptions: { ecmaFeatures: { globalReturn: true } } },
+    files: ['**/*.mdx'],
+    ...mdx.flat,
+    processor: mdx.createRemarkProcessor({ lintCodeBlocks: false }),
+    rules: {
+      ...mdx.flat.rules,
+      'no-unused-expressions': 'off',
+      'no-undef': 'error',
+      'no-unused-vars': 'error',
+    },
   },
+  ...astro.configs.recommended,
 ]);
