@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { articles as allArticles } from '../articles.js';
+import { articles as allArticles, ramblingsEnabled } from '../articles.js';
 const articles = [...allArticles].sort((a, b) => b.date.localeCompare(a.date));
 ---
 
@@ -339,43 +339,45 @@ const articles = [...allArticles].sort((a, b) => b.date.localeCompare(a.date));
       </li>
     </ul>
   </section>
-  <section
-    class="mt-6 md:mt-8"
-    slot="wide">
-    <h2 class="text-lg font-bold tracking-tight">Ramblings</h2>
-    <ul class="mt-3 grid gap-3 sm:grid-cols-2 md:gap-4">
-      {articles.map((article) => (
-        <li>
-          <a
-            class="card card-xs card-border hover:bg-base-200 h-full transition-colors sm:card-sm md:card-md"
-            href={`/articles/${article.slug}/`}>
-            {article.image && (
-              <figure class="h-20 md:h-24">
-                <img
-                  class="h-full w-full object-cover object-[52%_43%]"
-                  alt=""
-                  decoding="async"
-                  height="300"
-                  loading="lazy"
-                  src={article.image}
-                  width="300"
-                />
-              </figure>
-            )}
-            <div class="card-body">
-              <h3 class="card-title">{article.title}</h3>
-              <p class="opacity-80">{article.description}</p>
-              <div class="card-actions justify-end">
-                <time
-                  class="font-mono text-xs opacity-60"
-                  datetime={article.date}>
-                  {article.date.split('-').reverse().join('/')}
-                </time>
+  {ramblingsEnabled && (
+    <section
+      class="mt-6 md:mt-8"
+      slot="wide">
+      <h2 class="text-lg font-bold tracking-tight">Ramblings</h2>
+      <ul class="mt-3 grid gap-3 sm:grid-cols-2 md:gap-4">
+        {articles.map((article) => (
+          <li>
+            <a
+              class="card card-xs card-border hover:bg-base-200 h-full transition-colors sm:card-sm md:card-md"
+              href={`/articles/${article.slug}/`}>
+              {article.image && (
+                <figure class="h-20 md:h-24">
+                  <img
+                    class="h-full w-full object-cover object-[52%_43%]"
+                    alt=""
+                    decoding="async"
+                    height="300"
+                    loading="lazy"
+                    src={article.image}
+                    width="300"
+                  />
+                </figure>
+              )}
+              <div class="card-body">
+                <h3 class="card-title">{article.title}</h3>
+                <p class="opacity-80">{article.description}</p>
+                <div class="card-actions justify-end">
+                  <time
+                    class="font-mono text-xs opacity-60"
+                    datetime={article.date}>
+                    {article.date.split('-').reverse().join('/')}
+                  </time>
+                </div>
               </div>
-            </div>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </section>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 </Base>

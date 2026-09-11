@@ -43,4 +43,8 @@ export default defineConfig([
     rules: { 'css/no-invalid-properties': ['error', { allowUnknownVariables: true }] },
   },
   ...astro.configs.recommended,
+  {
+    files: ['**/*.astro'],
+    languageOptions: { parserOptions: { ecmaFeatures: { globalReturn: true } } },
+  },
 ]);

@@ -1,3 +1,4 @@
+export const ramblingsEnabled = import.meta.env.RAMBLINGS === 'true';
 export const articles = [
   {
     slug: 'ai',

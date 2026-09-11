@@ -1,8 +1,6 @@
 ---
 import '../main.css';
-
 const { title, description, ogType = 'profile' } = Astro.props;
-
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const isIndex = Astro.url.pathname === '/';
 const now = new Date();

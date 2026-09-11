@@ -1,8 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { articles } from '../../articles.js';
-
+import { articles, ramblingsEnabled } from '../../articles.js';
 const meta = articles.find((article) => article.slug === 'ai');
+if (!ramblingsEnabled) return Astro.redirect('/', 301);
 ---
 
 <Base
