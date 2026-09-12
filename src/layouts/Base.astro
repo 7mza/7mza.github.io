@@ -185,20 +185,7 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
               </p>
             )}
           </div>
-          <div
-            class="idle pointer-events-none relative -z-10 hidden shrink-0 select-none motion-reduce:hidden md:block"
-            aria-hidden="true">
-            <span class="idle-shadow"></span>
-            <img
-              class="h-full w-auto max-w-none"
-              alt=""
-              decoding="async"
-              height="687"
-              loading="lazy"
-              src="/7mza.webp"
-              width="253"
-            />
-          </div>
+          <slot name="aside" />
         </div>
         <slot name="wide" />
       </article>
