@@ -3,13 +3,14 @@ import globals from 'globals';
 import json from '@eslint/json';
 import markdown from '@eslint/markdown';
 import css from '@eslint/css';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, includeIgnoreFile } from 'eslint/config';
 import { tailwind4 } from 'tailwind-csstree';
 import astro from 'eslint-plugin-astro';
 import * as mdx from 'eslint-plugin-mdx';
 
 export default defineConfig([
-  { ignores: ['dist', '.astro', 'package-lock.json'] },
+  includeIgnoreFile(`${import.meta.dirname}/.gitignore`),
+  { ignores: ['package-lock.json'] },
   { files: ['**/*.js'], plugins: { js }, extends: ['js/recommended'], languageOptions: { globals: globals.browser } },
   { files: ['**/*.json'], plugins: { json }, language: 'json/json', extends: ['json/recommended'] },
   { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/gfm', extends: ['markdown/recommended'] },
