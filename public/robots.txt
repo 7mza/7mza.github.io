@@ -5,6 +5,7 @@ Allow: /*.png$
 Allow: /*.webp$
 Allow: /*.xml$
 Allow: /google6a9d902878adb148.html
+Allow: /3fd55ec42859409fbf60049834211e28.txt
 Disallow: /
 
 Sitemap: https://7mza.github.io/sitemap-index.xml
