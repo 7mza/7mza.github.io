@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { RAMBLINGS } from 'astro:env/server';
 import Base from '../layouts/Base.astro';
 import { isoDate, shortDate } from '../date.js';
+import { DESCRIPTION, GITHUB, HANDLE, TITLE } from '../seo.js';
 
 const articles = RAMBLINGS
   ? (await getCollection('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
@@ -10,8 +11,8 @@ const articles = RAMBLINGS
 ---
 
 <Base
-  title="Hamza BAAZIZ - Freelance Backend Software Engineer - JVM & Cloud Native"
-  description="Freelance Backend Software Engineer (JVM, Cloud). B2B, remote.">
+  title={TITLE}
+  description={DESCRIPTION}>
   <section class="mt-6 md:mt-8">
     <ul class="flex flex-col items-start gap-x-4 gap-y-1 md:flex-row md:flex-wrap md:items-center">
       <li>
@@ -57,7 +58,9 @@ const articles = RAMBLINGS
         <h2 class="text-lg font-bold tracking-tight">I do</h2>
       </summary>
       <div class="pb-4">
-        <div class="chat chat-start mt-2">
+        <div
+          class="chat chat-start mt-2"
+          data-nosnippet>
           <div class="chat-image avatar">
             <div class="w-10 rounded-full">
               <img
@@ -169,7 +172,9 @@ const articles = RAMBLINGS
         </ul>
       </div>
     </details>
-    <details name="cols">
+    <details
+      name="cols"
+      data-nosnippet>
       <summary class="pop-title">
         <h2 class="text-lg font-bold tracking-tight">I don't</h2>
       </summary>
@@ -286,8 +291,8 @@ const articles = RAMBLINGS
     <h2 class="text-lg font-bold tracking-tight">Technical portfolio</h2>
     <a
       class="shrink-0 opacity-80 transition-opacity hover:opacity-100"
-      aria-label="github.com/7mza"
-      href="https://github.com/7mza"
+      aria-label={`github.com/${HANDLE}`}
+      href={GITHUB}
       rel="noopener noreferrer"
       target="_blank">
       <svg class="size-7 fill-current">

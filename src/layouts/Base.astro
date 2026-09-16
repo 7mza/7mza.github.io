@@ -1,14 +1,11 @@
 ---
 import '../main.css';
-import { shortDate } from '../date.js';
+import { now, shortDate, timezone } from '../date.js';
+import { GITHUB, HANDLE, HOME, NAME, REPO, SITE, TITLE } from '../seo.js';
 
 const { title, description, ogType = 'profile' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const isIndex = Astro.url.pathname === '/';
-const now = new Date();
-const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', timeZoneName: 'short' })
-  .formatToParts(now)
-  .find((part) => part.type === 'timeZoneName')?.value;
 ---
 
 <!-- this landing page is mostly satire, hit me through the alias for the "square" résumé, I can help u build solid things -->
@@ -29,9 +26,15 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
       content={description}
       name="description"
     />
+    {!isIndex && (
+      <meta
+        content="noindex, nofollow"
+        name="robots"
+      />
+    )}
     <meta
-      content={isIndex ? 'max-image-preview:large' : 'noindex, nofollow'}
-      name="robots"
+      content={NAME}
+      property="og:site_name"
     />
     <meta
       content={title}
@@ -50,7 +53,7 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
       property="og:url"
     />
     <meta
-      content="https://7mza.github.io/og.png"
+      content={`${SITE}/og.png`}
       property="og:image"
     />
     <meta
@@ -62,7 +65,7 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
       property="og:image:height"
     />
     <meta
-      content="Hamza BAAZIZ - Backend Software Engineer - JVM &amp; Cloud Native"
+      content={TITLE}
       property="og:image:alt"
     />
     <link
@@ -73,6 +76,28 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cstyle%3Etext{fill:%23000}@media(prefers-color-scheme:dark){text{fill:%23fff}}%3C/style%3E%3Ctext x='50' y='78' text-anchor='middle' font-size='92' font-family='system-ui,sans-serif' font-weight='900'%3E7%3C/text%3E%3C/svg%3E"
       rel="icon"
     />
+    <script
+      is:inline
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebSite',
+            '@id': `${HOME}#website`,
+            url: HOME,
+            name: NAME,
+            publisher: { '@id': `${HOME}#person` },
+          },
+          {
+            '@type': 'Person',
+            '@id': `${HOME}#person`,
+            name: NAME,
+            url: HOME,
+            sameAs: [GITHUB],
+          },
+        ],
+      })}
+      type="application/ld+json"></script>
   </head>
   <body class="flex min-h-dvh flex-col">
     <svg
@@ -116,7 +141,7 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
           <div class="w-full min-w-0 grow">
             <div class="flex items-center justify-between gap-3">
               <h1 class="text-4xl leading-[1.05] font-black tracking-tight md:text-6xl md:tracking-tighter">
-                <a href="/">Hamza BAAZIZ</a>
+                <a href="/">{NAME}</a>
               </h1>
               <label
                 class="swap swap-rotate shrink-0 p-2 transition-[scale,opacity] duration-100 active:scale-90 active:opacity-60 motion-reduce:active:scale-100"
@@ -138,7 +163,9 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
                 </svg>
               </label>
             </div>
-            <p class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm tracking-wide opacity-80 md:text-base md:tracking-normal">
+            <p
+              class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm tracking-wide opacity-80 md:text-base md:tracking-normal"
+              data-nosnippet>
               <span>Freelance, B2B</span>
               <span
                 class="opacity-40"
@@ -191,8 +218,10 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
       </article>
     </main>
     <div class="bg-base-200">
-      <footer class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-4 text-sm opacity-70 md:px-6">
-        <span>7mza</span>
+      <footer
+        class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-4 text-sm opacity-70 md:px-6"
+        data-nosnippet>
+        <span>{HANDLE}</span>
         <span
           class="opacity-40"
           aria-hidden="true">
@@ -208,7 +237,7 @@ const timezone = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', ti
         </span>
         <a
           class="link link-hover flex items-center gap-1.5"
-          href="https://github.com/7mza/7mza.github.io"
+          href={REPO}
           rel="noopener noreferrer"
           target="_blank">
           <svg

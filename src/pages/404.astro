@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import { NAME } from '../seo.js';
 ---
 
 <Base
-  title="404 - Hamza BAAZIZ"
+  title={`404 - ${NAME}`}
   description="Page not found.">
   <section class="mt-6 max-w-prose md:mt-8">
     <h2 class="text-3xl font-black tracking-tight md:text-4xl">404</h2>

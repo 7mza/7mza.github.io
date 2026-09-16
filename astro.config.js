@@ -5,6 +5,7 @@ import { satteri } from '@astrojs/markdown-satteri';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineHastPlugin } from 'satteri';
+import { HOME, SITE } from './src/seo.js';
 
 const externalLinks = defineHastPlugin({
   name: 'external-links',
@@ -20,8 +21,9 @@ const externalLinks = defineHastPlugin({
 });
 
 export default defineConfig({
-  site: 'https://7mza.github.io',
-  integrations: [sitemap({ filter: (page) => page === 'https://7mza.github.io/', lastmod: new Date() }), mdx()],
+  site: SITE,
+  compressHTML: true,
+  integrations: [sitemap({ filter: (page) => page === HOME, lastmod: new Date() }), mdx()],
   markdown: {
     processor: satteri({ hastPlugins: [externalLinks] }),
     shikiConfig: { themes: { light: 'solarized-light', dark: 'solarized-dark' }, defaultColor: false },
