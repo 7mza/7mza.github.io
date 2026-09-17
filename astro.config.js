@@ -23,6 +23,7 @@ const externalLinks = defineHastPlugin({
 export default defineConfig({
   site: SITE,
   compressHTML: true,
+  devToolbar: { enabled: true, placement: 'bottom-right' },
   integrations: [sitemap({ filter: (page) => page === HOME, lastmod: new Date() }), mdx()],
   markdown: {
     processor: satteri({ hastPlugins: [externalLinks] }),
