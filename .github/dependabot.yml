@@ -4,6 +4,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+      day: tuesday
+      time: '14:00'
+      timezone: 'Europe/Paris'
     open-pull-requests-limit: 1
     ignore:
       - dependency-name: typescript
@@ -16,6 +19,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+      day: wednesday
+      time: '14:00'
+      timezone: 'Europe/Paris'
     open-pull-requests-limit: 1
     groups:
       actions:
