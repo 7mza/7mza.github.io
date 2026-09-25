@@ -4,26 +4,24 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      day: tuesday
+      day: monday
       time: '14:00'
-      timezone: 'Europe/Paris'
+      timezone: Europe/Paris
     open-pull-requests-limit: 1
     ignore:
       - dependency-name: typescript
-        update-types: ['version-update:semver-major']
+        update-types: [version-update:semver-major]
     groups:
       npm:
-        patterns:
-          - '*'
+        patterns: ['*']
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
-      day: wednesday
-      time: '14:00'
-      timezone: 'Europe/Paris'
+      day: monday
+      time: '15:00'
+      timezone: Europe/Paris
     open-pull-requests-limit: 1
     groups:
       actions:
-        patterns:
-          - '*'
+        patterns: ['*']
