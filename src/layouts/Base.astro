@@ -8,7 +8,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const isIndex = Astro.url.pathname === '/';
 ---
 
-<!-- this landing page is mostly satire, hit me through the alias for the "square" résumé, I can help u build solid things -->
 <!doctype html>
 <html lang="en">
   <head>
@@ -229,6 +228,20 @@ const isIndex = Astro.url.pathname === '/';
         </span>
         <span>
           build <time datetime={now.toISOString()}>{shortDate(now)}</time>
+        </span>
+        <span
+          class="opacity-40"
+          aria-hidden="true">
+          /
+        </span>
+        <span>
+          <a
+            class="link link-hover flex items-center gap-1.5"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.cloudflare.com/web-analytics">
+            Cloudflare Analytics
+          </a>
         </span>
         <span
           class="opacity-40"
